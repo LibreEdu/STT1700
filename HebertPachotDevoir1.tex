@@ -169,7 +169,7 @@ Lorsqu’on observe l’histogramme (fig.~\ref{intraHist}), la distribution semb
 
 
 \subsection{Meilleur graphique}
-Il n’y a pas de meilleur graphique, chaque graphique a ses propres caractéristiques ainsi que les avantages qui vont avec. Si je devais comparer les notes du cours de STT~1700 d’une dizaine de sessions, les diagrammes à moustaches seraient bien pratiques, car ils permettent en un coup d’oeil de voir les différents quartiles. Quant au graphique des quantiles normaux, il permet de confronter notre hypothèse : \og La distribution suit une loi normale \fg{}, au modèle théorique. Néanmoins, lors d’une première approche, ce n’est pas la représentation la parlante. En effet, l’histogramme nous permet d’avoir d’une part une idée des principaux indicateurs : $Q_{1}$ (entre 40 et 50), $Q_{2}$ (entre 60 et 70) et $Q_{3}$ (entre 70 et 80), et d’autre part une idée de la distribution. Seulement ce dernier graphique nous a permis de nous rendre compte de l’aspect bimodal de la distribution. Pour représenter en distribution unique, l’histogramme semble le graphique le plus pertinent.
+Il n’y a pas de meilleur graphique, chaque graphique a ses propres caractéristiques ainsi que les avantages qui vont avec. Si je devais comparer les notes du cours de STT~1700 d’une dizaine de sessions, les diagrammes à moustaches seraient bien pratiques, car ils permettent en un coup d’oeil de voir les différents quartiles. Quant au graphique des quantiles normaux, il permet de confronter notre hypothèse : \og La distribution suit une loi normale \fg{}, au modèle théorique. Néanmoins, lors d’une première approche, ce n’est pas la représentation la parlante. En effet, l’histogramme nous permet d’avoir d’une part une idée des principaux indicateurs : $Q_{1}$ (entre 40 et 50), $Q_{2}$ (entre 60 et 70) et $Q_{3}$ (entre 70 et 80), et d’autre part une idée de la distribution. Seulement ce dernier graphique nous a permis de nous rendre compte de l’aspect bimodal de la distribution. Pour représenter une distribution avec un et un seul diagramme, l’histogramme semble le graphique le plus pertinent.
 
 
 \subsection{Centre et dispersion de la distribution}
@@ -417,7 +417,7 @@ L’histogramme du nombre de buts comptés par saison est représenté à la fig
 
 \subsubsection*{Code R:}
 \begin{verbatim}
-intra<-read.table(file="~/d1_gretzky.txt")
+gretzky<-read.table(file="~/d1_gretzky.txt")
 hist(
   gretzky$V1,
   main = "Nombres de buts comptés par Wayne Gretzky",
@@ -457,7 +457,7 @@ D’après l’analyse numérique, la moyenne étant plus grande que la médiane
 
 
 \subsection{Graphique temporelle}
-En observant le graphique temporel (cf. fig.~\ref{gretzkyPlot}), on se rend compte que c’est la première moitié de la carrière qui est exceptionnelle. Il y aurait même une corrélation négative entre le nombre de buts par saison et les saisons.
+En observant le graphique temporel (cf. fig.~\ref{gretzkyPlot}), on se rend compte que c’est la première moitié de la carrière qui est exceptionnelle. Il y aurait même une corrélation négative entre le nombre de buts par saison et les saisons. En effet, si l’on ajoute manuellement (tableur\dots) une deuxième colonne représentant les saisons, on obtient une corrélation négative de -0,85 entre les deux variables. Moralité : plus on gagne de l’expérience, moins on est bon!
 
 \begin{figure}[htbp]
 	\caption{Graphique temporelle}
@@ -468,11 +468,14 @@ En observant le graphique temporel (cf. fig.~\ref{gretzkyPlot}), on se rend comp
 
 \subsubsection*{Code R:}
 \begin{verbatim}
-plot(
-  gretzky$V1,
-  main = "Nombres de buts comptés par Wayne Gretzky",
-  xlab = "Saisons",
-  ylab = "Nombres de buts")
+> plot(
+    gretzky$V1,
+    main = "Nombres de buts comptés par Wayne Gretzky",
+    xlab = "Saisons",
+    ylab = "Nombres de buts")
+> gretzky2<-read.table(file="~/d1_gretzky.csv")
+> cor(gretzky2$V1, gretzky2$V2)
+[1] -0.8507047
 \end{verbatim}
 
 
