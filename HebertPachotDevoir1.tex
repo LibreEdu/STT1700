@@ -114,7 +114,7 @@ Le graphique a été fait avec R, avec les paramètres par défaut. Lorsqu’il 
 intra<-read.table(file="~/d1_intra.txt")
 boxplot(
   intra,
-  main = "Notes de l’intra, STT 1700, Automne 2018",
+  main = "Notes de l’intra, STT 1700, Automne 2019",
   xlab = "Notes, en %",
   horizontal = TRUE)
 \end{verbatim}
@@ -134,7 +134,7 @@ Lorsqu’on observe le graphique des quantiles normaux (fig.~\ref{intraQqnorm}),
 \begin{verbatim}
 qqnorm(
   intra$V1,
-  main = "Notes de l’intra, STT 1700, Automne 2018",
+  main = "Notes de l’intra, STT 1700, Automne 2019",
   xlab = "Quantiles théoriques",
   ylab = "Quantiles observés")
 qqline(intra$V1)
@@ -158,7 +158,7 @@ Lorsqu’on observe l’histogramme (fig.~\ref{intraHist}), la distribution semb
 \begin{verbatim}
 > hist(
     intra$V1,
-    main = "Notes de l’intra, STT 1700, Automne 2018",
+    main = "Notes de l’intra, STT 1700, Automne 2019",
     xlab = "Notes, en %",
     ylab = "Fréquences")
 > install.packages("diptest")
@@ -457,7 +457,7 @@ D’après l’analyse numérique, la moyenne étant plus grande que la médiane
 
 
 \subsection{Graphique temporelle}
-En observant le graphique temporel (cf. fig.~\ref{gretzkyPlot}), on se rend compte que c’est la première moitié de la carrière qui est exceptionnelle. Il y aurait même une corrélation négative entre le nombre de buts par saison et les saisons. En effet, si l’on ajoute manuellement (tableur\dots) une deuxième colonne représentant les saisons, on obtient une corrélation négative de -0,85 entre les deux variables. Moralité : plus on gagne de l’expérience, moins on est bon!
+En observant le graphique temporel (cf. fig.~\ref{gretzkyPlot}), on se rend compte que c’est la première moitié de la carrière qui est exceptionnelle. Il y aurait même une corrélation négative entre le nombre de buts par saison et les saisons. Pour cela, il suffit d’ajouter une variable pour la saisonnalité, afin de pouvoir calculer la corrélation. On obtient une corrélation négative de -0,85 entre les deux variables. Moralité : plus on gagne de l’expérience, moins on est bon!
 
 \begin{figure}[htbp]
 	\caption{Graphique temporelle}
@@ -473,8 +473,8 @@ En observant le graphique temporel (cf. fig.~\ref{gretzkyPlot}), on se rend comp
     main = "Nombres de buts comptés par Wayne Gretzky",
     xlab = "Saisons",
     ylab = "Nombres de buts")
-> gretzky2<-read.table(file="~/d1_gretzky.csv")
-> cor(gretzky2$V1, gretzky2$V2)
+> gretzky$V2 <- seq(1,21)
+> cor(gretzky$V1, gretzky$V2)
 [1] -0.8507047
 \end{verbatim}
 
