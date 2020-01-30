@@ -1,5 +1,5 @@
 \documentclass[10pt,twocolumn]{article}
-\usepackage[letterpaper,landscape,hmargin=.7in,top=.7in,bottom=.9in]{geometry}
+\usepackage[letterpaper,landscape,hmargin=1in,top=1in,bottom=1in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{fourier}
 \usepackage[T1]{fontenc}
@@ -143,7 +143,10 @@ qqline(intra$V1)
 
 \subsection{Histogramme}
 \label{histogramme}
-Lorsqu’on observe l’histogramme (fig.~\ref{intraHist}), la distribution semble bimodale. La distribution est-elle réellement bimodale ? D’après Wikipédia\footnote{\url{https://en.wikipedia.org/wiki/Multimodal\_distribution\#General\_tests}}, il existe plusieurs tests pour savoir si une distribution est unimodale. Parmi ces tests, il y a le Hartigan’s dip statistic (HDS) test qui peut se faire sous R à partir de l’extension \textit{diptest} (Hartigan's Dip Test Statistic for Unimodality). D’après Freeman \cite{Freeman:2013aa}, une valeur inférieure à 0,05 au test HDS indique une bimodalité signicative. La valeur obtenue pour cette distribution est de 0,026. On peut considérer la distribution comme bimodale.
+Lorsqu’on observe l’histogramme (fig.~\ref{intraHist}), la distribution semble bimodale. À priori, il n’y a aucune explication à cette bimodalité, et il ne faut pas chercher de la bimodalité, là où il n’y en a pas.
+
+Néanmoins, dans le cas où la question de la bimodalité est légitime, on pourrait se demander si la distribution est réellement bimodale. D’après Wikipédia\footnote{\url{https://en.wikipedia.org/wiki/Multimodal\_distribution\#General\_tests}}, il existe plusieurs tests pour savoir si une distribution est unimodale. Parmi ces tests, il y a le Hartigan’s dip statistic (HDS) test qui peut se faire sous R à partir de l’extension \textit{diptest} (Hartigan's Dip Test Statistic for Unimodality). D’après Freeman \cite{Freeman:2013aa}, une valeur inférieure à 0,05 au test HDS indique une bimodalité signicative. La valeur obtenue pour cette distribution est de 0,026. On peut considérer la distribution comme bimodale.
+
 
 %https://stats.stackexchange.com/questions/156808/interpretation-of-hartigans-dip-test
 
@@ -173,7 +176,7 @@ Il n’y a pas de meilleur graphique, chaque graphique a ses propres caractéris
 
 
 \subsection{Centre et dispersion de la distribution}
-Le centre de la dispersion, la moyenne, est égal à 59 et la dispersion, l’écart-type, est de 19. Or, nous avons vu à la sous-section~\ref{histogramme} (Histogramme) qu’il s’agit d’une distribution bimodale. Il y a donc deux moyennes et deux écarts-types à calculer.
+Le centre de la dispersion, la moyenne, est égal à 59 et la dispersion, l’écart-type, est de 19. Or, nous avons vu à la sous-section~\ref{histogramme} (Histogramme) qu’il s’agit d’une distribution bimodale. Si cette question de la bimodalité était légitime, il y aurait deux moyennes et deux écarts-types à calculer.
 
 Les extensions \textit{flexmix} (Flexible Mixture Modeling) et mixtools (Tools for Analyzing Finite Mixture Models) nous permettent d’estimer\footnote{\url{https://stats.stackexchange.com/questions/297157/r-how-to-find-the-secondary-peak-of-a-distribution}} ces deux modes. On obtient néanmoins des valeurs différentes : d’une part $\mathcal{N}(\mu,\sigma) = \mathcal{N}(41,11)$ et $\mathcal{N}(72,10)$; et d’autre part $\mathcal{N}(48,16)$ et $\mathcal{N}(73,11)$. Étant données les valeurs des écarts-types, je préfère la première solution. La deuxième extension nous permet de superposer les courbes à l’histogramme, cf fig.~\ref{intraHist}.
 
@@ -370,6 +373,8 @@ NL2 <- baseball[baseball[,"Points"]<="1.3"
 
 
 \section{Indice NASDAQ}
+% http://seankross.com/notes/dpqr/
+
 \subsection{Intervalle de confiance}
 L’intervalle de confiance à 95~\% pour une loi $\mathcal{N}(\mu,\sigma) = \mathcal{N}(12,6 \%, 25,4\%)$ est $[-37,2 \%, 62,4 \%]$. À 95~\%, le retour annuel sur investissement sera entre -37,2 \% et 62,4 \%.
 
