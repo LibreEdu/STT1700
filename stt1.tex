@@ -376,20 +376,19 @@ NL2 <- baseball[baseball[,"Points"]<="1.3"
 % http://seankross.com/notes/dpqr/
 
 \subsection{Intervalle de confiance}
-L’intervalle de confiance à 95~\% pour une loi $\mathcal{N}(\mu,\sigma) = \mathcal{N}(12,6 \%, 25,4\%)$ est $[-37,2 \%, 62,4 \%]$. À 95~\%, le retour annuel sur investissement sera entre -37,2 \% et 62,4 \%.
+L’intervalle de confiance à 95~\% pour une loi $\mathcal{N}(\mu,\sigma) = \mathcal{N}(12.6~\%, 25.4~\%)$ est $[-37.2~\%, 62.4~\%]$. À 95~\%, le retour annuel sur investissement sera entre $-37.2~\%$ et 62.4~\%.
 
 \subsubsection*{Code R:}
 \begin{verbatim}
-> round(qnorm(0.025, mean = 12.6, sd = 25.4), digits = 1)
-[1] -37.2
-> round(qnorm(0.025, mean = 12.6, sd = 25.4, lower.tail = FALSE),
-    digits = 1)
-[1] 62.4
+> qnorm(0.025, mean = 12.6, sd = 25.4)
+[1] -37.18309
+> qnorm(0.025, mean = 12.6, sd = 25.4, lower.tail = FALSE)
+[1] 62.38309
 \end{verbatim}
 
 
 \subsection{Pourcentage d’année où le marché est baissier}
-La probabilité d’avoir $X \leq 0$ pour une loi $\mathcal{N}(12,6 \%, 25,4\%)$ est de 30,7~\%. Le pourcentage d’année où le marché est baissier est de 30,7~\%.
+La probabilité d’avoir $X \leq 0$ pour une loi $\mathcal{N}(12.6~\%, 25.4~\%)$ est de 30.7~\%. Le pourcentage d’année où le marché est baissier est de 30.7~\%.
 
 \subsubsection*{Code R:}
 \begin{verbatim}
