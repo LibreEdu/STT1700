@@ -1,5 +1,5 @@
 #rm(list = ls())
-load("/Users/pachot/Documents/Umontreal/STT1700/GitHub/ch10/ex10-30gradeup.rda")
+load("~/Documents/Umontreal/STT1700/GitHub/ch10/ex10-30gradeup.rda")
 df <- `EX10-30GRADEUP`
 rm(`EX10-30GRADEUP`)
 plot(df$Year, df$GPA)
