@@ -1,7 +1,10 @@
-#rm(list = ls())
+rm(list = ls())
+cat("\014")
+
 load("~/Documents/Umontreal/STT1700/GitHub/ch10/ex10-20twister.rda")
 df <- `EX10-20TWISTER`
 rm(`EX10-20TWISTER`)
+
 plot(df$Year, df$Tornadoes)
 reg.lin <- lm(Tornadoes ~ Year, data = df)
 abline(reg.lin)
