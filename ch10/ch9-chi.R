@@ -34,3 +34,17 @@ marge.erreur <- 0.07
 n <- p * (1-p) * z^2 / marge.erreur^2
 n
 ceiling(n)
+
+# Intervalle de confiance, différence de deux proportions
+n1 <- 20
+n2 <- 20
+p1 <- 9/n1
+p2 <- 6/n2
+
+deltaP = p1 - p2
+alpha <- 5/100
+z <- qnorm(1-alpha/2)
+ICmin = deltaP - z * sqrt( p1*(1-p1)/n1 + p2*(1-p2)/n2 )
+ICmax = deltaP + z * sqrt( p1*(1-p1)/n1 + p2*(1-p2)/n2 )
+ICmin
+ICmax
