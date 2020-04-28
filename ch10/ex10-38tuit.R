@@ -8,8 +8,10 @@ rm(`EX10-38TUIT`)
 plot(df$Y2008, df$Y2014, xlab = "Frais de scolarité en 2008", ylab = "Frais de scolarité en 2014")
 lm <- lm(Y2014 ~ Y2008, data = df)
 abline(lm)
+summary(lm)
 
 r <- cor(df$Y2008,df$Y2014)
+r
 sx <- sd(df$Y2008)
 sy <- sd(df$Y2014)
 b_hat <- r * sy/sx

@@ -30,6 +30,7 @@ sprintf("%.100f",ICmax)
 p <- .2
 alpha <- 5/100
 z <- qnorm(1-alpha/2)
+z
 marge.erreur <- 0.07
 n <- p * (1-p) * z^2 / marge.erreur^2
 n
